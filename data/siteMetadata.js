@@ -3,99 +3,79 @@ const siteMetadata = {
   title: 'Pass PMP Now',
   author: 'Pass PMP Now',
   headerTitle: 'Pass PMP Now',
-  description: 'Pass the PMP with study plans, ITTO explainers, and realistic practice.',
+  description:
+    'Pass the PMP with study plans, ITTO explainers, realistic practice, and exam strategies.',
   language: 'en-us',
-  theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  theme: 'system', // system | dark | light
+
+  // === SEO / Sitemap ===
+  siteUrl: 'https://passpmpnow.com', // ← 这是生成 sitemap 的来源，请务必保持为你的主域名
+  siteRepo: 'https://github.com/langerlee-w/passpmpnow', // ← 如与你实际仓库不同，改成你的
+
+  // === Brand assets ===
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  x: 'https://twitter.com/x',
-  // twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
-  medium: 'https://medium.com',
-  bluesky: 'https://bsky.app/',
+
+  // === Contacts & Socials（没账号就先留空，后面再补）===
+  mastodon: '',
+  email: 'hello@passpmpnow.com',
+  github: '',
+  x: '', // e.g. https://twitter.com/yourhandle
+  // twitter: '', // deprecated alias of x
+  facebook: '',
+  youtube: '',
+  linkedin: '',
+  threads: '',
+  instagram: '',
+  medium: '',
+  bluesky: '',
+
   locale: 'en-US',
-  // set to true if you want a navbar fixed to the top
+
+  // 是否固定顶栏
   stickyNav: false,
+
+  // === Analytics（我们已用 Next Script 注入 GA4；这里留空即可，避免引入多余 CSP）===
   analytics: {
-    // If you want to use an analytics provider you have to add it to the
-    // content security policy in the `next.config.js` file.
-    // supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
-    umamiAnalytics: {
-      // We use an env variable for this site to avoid other users cloning our analytics ID
-      umamiWebsiteId: process.env.NEXT_UMAMI_ID, // e.g. 123e4567-e89b-12d3-a456-426614174000
-      // You may also need to overwrite the script if you're storing data in the US - ex:
-      // src: 'https://us.umami.is/script.js'
-      // Remember to add 'us.umami.is' in `next.config.js` as a permitted domain for the CSP
-    },
-    // plausibleAnalytics: {
-    //   plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
-    // If you are hosting your own Plausible.
-    //   src: '', // e.g. https://plausible.my-domain.com/js/script.js
-    // },
-    // simpleAnalytics: {},
-    // posthogAnalytics: {
-    //   posthogProjectApiKey: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
-    // },
-    // googleAnalytics: {
-    //   googleAnalyticsId: '', // e.g. G-XXXXXXX
-    // },
+    // 留空 {} 即不启用 Pliny 内置的 analytics 组件
+    // 如需 Umami / Plausible / Posthog，再按需开启并同步修改 next.config.js 的 CSP
   },
+
+  // === Newsletter（未使用先禁用）===
   newsletter: {
-    // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus, beehive
-    // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    provider: '', // e.g. 'buttondown'；留空代表不启用
   },
+
+  // === Comments（未配置 giscus/utterances 时建议禁用）===
   comments: {
-    // If you want to use an analytics provider you have to add it to the
-    // content security policy in the `next.config.js` file.
-    // Select a provider and use the environment variables associated to it
-    // https://vercel.com/docs/environment-variables
-    provider: 'giscus', // supported providers: giscus, utterances, disqus
+    provider: '', // 'giscus' | 'utterances' | 'disqus' | ''(禁用)
     giscusConfig: {
-      // Visit the link below, and follow the steps in the 'configuration' section
-      // https://giscus.app/
       repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
       repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
       category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
       categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
-      mapping: 'pathname', // supported options: pathname, url, title
-      reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
-      // Send discussion metadata periodically to the parent window: 1 = enable / 0 = disable
+      mapping: 'pathname',
+      reactions: '1',
       metadata: '0',
-      // theme example: light, dark, dark_dimmed, dark_high_contrast
-      // transparent_dark, preferred_color_scheme, custom
       theme: 'light',
-      // theme when dark mode
       darkTheme: 'transparent_dark',
-      // If the theme option above is set to 'custom`
-      // please provide a link below to your custom theme css file.
-      // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
-      // This corresponds to the `data-lang="en"` in giscus's configurations
       lang: 'en',
     },
   },
+
+  // === Search ===
   search: {
-    provider: 'kbar', // kbar or algolia
+    provider: 'kbar', // 'kbar' or 'algolia'
     kbarConfig: {
-      searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`, // path to load documents to search
+      // 用于本地搜索的数据源路径（构建时自动生成）
+      searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`,
     },
-    // provider: 'algolia',
+    // 如果以后接入 Algolia，取消注释并填写
     // algoliaConfig: {
-    //   // The application ID provided by Algolia
-    //   appId: 'R2IYF7ETH7',
-    //   // Public API key: it is safe to commit it
-    //   apiKey: '599cec31baffa4868cae4e79f180729b',
-    //   indexName: 'docsearch',
+    //   appId: '',
+    //   apiKey: '',
+    //   indexName: '',
     // },
   },
 }
