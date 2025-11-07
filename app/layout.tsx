@@ -1,7 +1,7 @@
+import Script from 'next/script'
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
-import Gtag from '@/components/Gtag'
 import { Space_Grotesk } from 'next/font/google'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -98,11 +98,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProviders>
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
+              {process.env.NEXT_PUBLIC_GA_ID ? (
+  <>
+    <Script
+      id="ga4-loader"
+      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+      strategy="beforeInteractive"
+    />
+    <Script id="ga4-init" strategy="beforeInteractive">{`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { send_page_view: true });
+    `}</Script>
+  </>
+) : null}
+
               <Header />
               <main className="mb-auto">
-                <Suspense fallback={null}>
-                  <Gtag />
-                </Suspense>
                 {children}
               </main>
             </SearchProvider>
