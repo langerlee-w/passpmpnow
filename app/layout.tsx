@@ -1,7 +1,7 @@
-import Script from 'next/script'
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
+
 import { Space_Grotesk } from 'next/font/google'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -10,7 +10,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import type { Metadata } from 'next'
-import { Suspense } from 'react'
+import Script from 'next/script'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -60,6 +60,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const basePath = process.env.BASE_PATH || ''
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-F6ZDH39LGC' // 可保留 env；也可写死你的 ID
 
   return (
     <html
@@ -95,29 +96,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
+        {/* GA4 scripts - SSR 直注，View Source 可见 */}
+        {GA_ID ? (
+          <>
+            <Script
+              id="ga4-loader"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="beforeInteractive"
+            />
+            <Script id="ga4-init" strategy="beforeInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_ID}', { send_page_view: true });
+            `}</Script>
+          </>
+        ) : null}
+
         <ThemeProviders>
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-              {process.env.NEXT_PUBLIC_GA_ID ? (
-  <>
-    <Script
-      id="ga4-loader"
-      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-      strategy="beforeInteractive"
-    />
-    <Script id="ga4-init" strategy="beforeInteractive">{`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', { send_page_view: true });
-    `}</Script>
-  </>
-) : null}
-
               <Header />
-              <main className="mb-auto">
-                {children}
-              </main>
+              <main className="mb-auto">{children}</main>
             </SearchProvider>
             <Footer />
           </SectionContainer>
