@@ -1,9 +1,10 @@
+
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 import Gtag from '@/components/Gtag'
 import { Space_Grotesk } from 'next/font/google'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
+import { Analytics as PlinyAnalytics, AnalyticsConfig } from 'pliny/analytics' // ← 起别名
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
