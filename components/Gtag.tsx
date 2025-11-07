@@ -21,13 +21,17 @@ export default function Gtag() {
       document.head.appendChild(s)
     }
 
-    const w = window as any
-    w.dataLayer = w.dataLayer || []
+    const w = window as Window & {
+      dataLayer?: unknown[]
+      gtag?: (...args: unknown[]) => void
+    }
+
+    w.dataLayer = w.dataLayer ?? []
     w.gtag =
-      w.gtag ||
-      function (...args: any[]) {
-        w.dataLayer.push(args)
-      }
+      w.gtag ??
+      ((...args: unknown[]) => {
+        ;(w.dataLayer as unknown[]).push(args)
+      })
 
     w.gtag('js', new Date())
   }, [])
@@ -35,7 +39,9 @@ export default function Gtag() {
   // 路由变化：发送 page_view
   useEffect(() => {
     if (!GA_ID) return
-    const w = window as any
+    const w = window as Window & {
+      gtag?: (...args: unknown[]) => void
+    }
     if (typeof w.gtag !== 'function') return
 
     const q = searchParams?.toString()
