@@ -1,7 +1,6 @@
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
-import { Suspense } from 'react'
 import Gtag from '@/components/Gtag'
 import { Space_Grotesk } from 'next/font/google'
 import { SearchProvider, SearchConfig } from 'pliny/search'
@@ -11,6 +10,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -100,9 +100,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
               <main className="mb-auto">
-               <Suspense fallback={null}>
-               <Gtag />
-               </Suspense>
+                <Suspense fallback={null}>
+                  <Gtag />
+                </Suspense>
                 {children}
               </main>
             </SearchProvider>
