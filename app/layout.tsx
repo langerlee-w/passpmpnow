@@ -123,7 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <GaRouteChange />
                 </Suspense>
                 {children}
-             </main>
+              </main>
             </SearchProvider>
             <Footer />
           </SectionContainer>
