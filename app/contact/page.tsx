@@ -18,8 +18,7 @@ export default function ContactPage() {
         opportunities, feel free to reach out.
       </p>
       <p>
-        <strong>Email:</strong>{' '}
-        <a href="mailto:langer.lee@gmail.com">langer.lee@gmail.com</a>
+        <strong>Email:</strong> <a href="mailto:langer.lee@gmail.com">langer.lee@gmail.com</a>
       </p>
       <p>I read every message. Please allow up to 2–3 days for a reply.</p>
       <p>United States — serving PMP candidates worldwide 🌍</p>
