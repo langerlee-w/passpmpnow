@@ -11,6 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { Suspense } from 'react'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -118,7 +119,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
               <main className="mb-auto">
-                <GaRouteChange />
+                <Suspense fallback={null}>
+                 <GaRouteChange />
+                </Suspense>
                 {children}
               </main>
             </SearchProvider>
