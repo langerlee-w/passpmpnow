@@ -121,8 +121,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <main className="mb-auto">
                 <Suspense fallback={null}>
                   <GaRouteChange />
-               </Suspense>
-               {children}
+                </Suspense>
+                {children}
              </main>
             </SearchProvider>
             <Footer />
