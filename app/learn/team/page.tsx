@@ -1,53 +1,49 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Stakeholders · PMP Study Hub',
+  title: 'Team · PMP Study Hub',
   description:
-    'Everything you need for the Stakeholders performance domain: register, engagement plan, power-interest, communication, and exam-style examples.',
+    'Build and lead high-performing teams: roles, RACI, conflicts, motivation, coaching, and exam traps.',
 }
 
-export default function StakeholdersPage() {
+export default function TeamPage() {
   return (
     <section className="prose dark:prose-invert max-w-none">
-      <h1>Stakeholders</h1>
+      <h1>Team</h1>
+
       <p>
-        What the PMP really tests here: can you <strong>identify</strong>, <strong>analyze</strong>,
-        and <strong>engage</strong> stakeholders so that value actually gets delivered?
+        The exam tests whether you can <strong>build, develop, and lead</strong> a team toward value
+        delivery while handling conflicts and constraints.
       </p>
 
       <h2>What to master</h2>
       <ul>
-        <li>Stakeholder register (fields, examples, updates across phases)</li>
-        <li>Power–Interest / Salience model — when to use which</li>
-        <li>Engagement assessment matrix (Unaware → Leading)</li>
-        <li>Communication channels & tailoring by persona</li>
-        <li>Typical exam traps (scope creep vs. stakeholder request, change control)</li>
+        <li>Team charter, working agreements, RACI</li>
+        <li>Motivation & coaching (servant leadership, Tuckman)</li>
+        <li>Conflict resolution (collaborate over compete/avoid)</li>
+        <li>Resource constraints & negotiation</li>
       </ul>
 
-      <h2>Start here</h2>
+      <h2>Recommended reads</h2>
       <ul>
         <li>
-          <a href="/blog/stakeholder-register-examples">Stakeholder Register: 7 Examples You Can Reuse</a>
+          <Link href="/blog/agile-vs-predictive-vs-hybrid-real-examples">
+            Agile vs Predictive vs Hybrid — real examples
+          </Link>
         </li>
         <li>
-          <a href="/blog/stakeholder-engagement-matrix-explained">Stakeholder Engagement Matrix (Quick Guide)</a>
-        </li>
-        <li>
-          <a href="/blog/power-interest-vs-salience">Power–Interest vs. Salience: Which to Use When</a>
+          <Link href="/blog/pmp-exam-day-strategy">PMP Exam-Day Strategy</Link>
         </li>
       </ul>
 
       <h2>Browse by tag</h2>
       <p>
-        More posts: <a href="/tags/stakeholders">/tags/stakeholders</a>
+        See more:{' '}
+        <Link href="/tags/team" prefetch={false}>
+          /tags/team
+        </Link>
       </p>
-
-      <h2>Exam-day checklist</h2>
-      <ul>
-        <li>Re-scan top 5 stakeholders’ objectives, constraints, and influence</li>
-        <li>Confirm engagement level deltas (who moved from Resistant → Neutral?)</li>
-        <li>Have 1–2 communication tactics per key persona</li>
-      </ul>
     </section>
   )
 }
