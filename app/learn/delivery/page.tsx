@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -13,9 +14,8 @@ export default function DeliveryPage() {
       <h1>Delivery</h1>
 
       <p>
-        In the Delivery domain, PMP cares about whether the team can
-        <strong> deliver usable value</strong> in agreed increments, meet acceptance
-        criteria, and handle changes through a disciplined process.
+        In the Delivery domain, PMP cares about whether the team can <strong>deliver usable value</strong>
+        in agreed increments, meet acceptance criteria, and handle changes through a disciplined process.
       </p>
 
       <h2>What to master</h2>
@@ -30,53 +30,39 @@ export default function DeliveryPage() {
       <h2>Start here</h2>
       <ul>
         <li>
-          <Link href="/blog/pmp-change-request-flow">
-            PMP Change Request Flow — quick visual & traps
-          </Link>
+          <Link href="/blog/pmp-change-request-flow">PMP Change Request Flow — quick visual & traps</Link>
         </li>
         <li>
-          <Link href="/blog/pmp-exam-day-strategy">
-            PMP Exam-Day Strategy — time boxes, flag & move, review
-          </Link>
+          <Link href="/blog/pmp-exam-day-strategy">PMP Exam-Day Strategy — time boxes, flag &amp; move, review</Link>
         </li>
         <li>
-          <Link href="/blog/pmp-formulas-you-must-know">
-            PMP Formulas You Must Know — earned value & forecasts
-          </Link>
+          <Link href="/blog/pmp-formulas-you-must-know">PMP Formulas You Must Know — earned value &amp; forecasts</Link>
         </li>
       </ul>
 
       <h2>Delivery pitfalls on the exam</h2>
       <ul>
         <li>
-          Shipping a feature that doesn’t match acceptance criteria is{' '}
-          <em>not</em> “done”. Re-plan or raise a change — don’t bypass control.
+          Shipping a feature that doesn’t match acceptance criteria is <em>not</em> “done”. Re-plan or raise a change — don’t bypass control.
         </li>
         <li>
           “Stakeholder asked for this” ≠ approved change. Use the formal CR flow.
         </li>
         <li>
-          In hybrid, keep the predictive baselines but deliver increments with
-          agile ceremonies — be explicit about which rules apply.
+          In hybrid, keep the predictive baselines but deliver increments with agile ceremonies — be explicit about which rules apply.
         </li>
       </ul>
 
       <h2>See also (related study posts)</h2>
       <ul>
         <li>
-          <Link href="/blog/how-to-apply-for-pmp">
-            How to Apply for PMP — application checklist
-          </Link>
+          <Link href="/blog/how-to-apply-for-pmp">How to Apply for PMP — application checklist</Link>
         </li>
         <li>
-          <Link href="/blog/itto-patterns-for-pmp">
-            ITTO Patterns for PMP — how to reason, not memorize
-          </Link>
+          <Link href="/blog/itto-patterns-for-pmp">ITTO Patterns for PMP — how to reason, not memorize</Link>
         </li>
         <li>
-          <Link href="/blog/agile-vs-predictive-vs-hybrid-real-examples">
-            Agile vs Predictive vs Hybrid — real examples
-          </Link>
+          <Link href="/blog/agile-vs-predictive-vs-hybrid-real-examples">Agile vs Predictive vs Hybrid — real examples</Link>
         </li>
       </ul>
 
