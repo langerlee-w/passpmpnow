@@ -1,52 +1,90 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Stakeholders · PMP Study Hub',
+  title: 'Delivery · PMP Study Hub',
   description:
-    'Everything you need for the Stakeholders performance domain: register, engagement plan, power-interest, communication, and exam-style examples.',
+    'Everything you need for the Delivery performance domain: value delivery, increments, acceptance criteria, change control, and exam-day checklists.',
 }
 
-export default function StakeholdersPage() {
+export default function DeliveryPage() {
   return (
     <section className="prose dark:prose-invert max-w-none">
-      <h1>Stakeholders</h1>
+      <h1>Delivery</h1>
+
       <p>
-        What the PMP really tests here: can you <strong>identify</strong>, <strong>analyze</strong>,
-        and <strong>engage</strong> stakeholders so that value actually gets delivered?
+        In the Delivery domain, PMP cares about whether the team can
+        <strong> deliver usable value</strong> in agreed increments, meet acceptance
+        criteria, and handle changes through a disciplined process.
       </p>
 
       <h2>What to master</h2>
       <ul>
-        <li>Stakeholder register (fields, examples, updates across phases)</li>
-        <li>Power–Interest / Salience model — when to use which</li>
-        <li>Engagement assessment matrix (Unaware → Leading)</li>
-        <li>Communication channels & tailoring by persona</li>
-        <li>Typical exam traps (scope creep vs. stakeholder request, change control)</li>
+        <li>Definition of Done vs. Acceptance Criteria</li>
+        <li>Incremental delivery and verification/validation</li>
+        <li>Change control (when to raise a CR, who approves, baselines)</li>
+        <li>Tailoring delivery cadence (predictive / agile / hybrid)</li>
+        <li>Done-but-not-accepted vs. blocked work — how to resolve</li>
       </ul>
 
       <h2>Start here</h2>
       <ul>
         <li>
-          <a href="/blog/stakeholder-register-examples">Stakeholder Register: 7 Examples You Can Reuse</a>
+          <Link href="/blog/pmp-change-request-flow">
+            PMP Change Request Flow — quick visual & traps
+          </Link>
         </li>
         <li>
-          <a href="/blog/stakeholder-engagement-matrix-explained">Stakeholder Engagement Matrix (Quick Guide)</a>
+          <Link href="/blog/pmp-exam-day-strategy">
+            PMP Exam-Day Strategy — time boxes, flag & move, review
+          </Link>
         </li>
         <li>
-          <a href="/blog/power-interest-vs-salience">Power–Interest vs. Salience: Which to Use When</a>
+          <Link href="/blog/pmp-formulas-you-must-know">
+            PMP Formulas You Must Know — earned value & forecasts
+          </Link>
         </li>
       </ul>
 
-      <h2>Browse by tag</h2>
-      <p>
-        More posts: <a href="/tags/stakeholders">/tags/stakeholders</a>
-      </p>
+      <h2>Delivery pitfalls on the exam</h2>
+      <ul>
+        <li>
+          Shipping a feature that doesn’t match acceptance criteria is{' '}
+          <em>not</em> “done”. Re-plan or raise a change — don’t bypass control.
+        </li>
+        <li>
+          “Stakeholder asked for this” ≠ approved change. Use the formal CR flow.
+        </li>
+        <li>
+          In hybrid, keep the predictive baselines but deliver increments with
+          agile ceremonies — be explicit about which rules apply.
+        </li>
+      </ul>
+
+      <h2>See also (related study posts)</h2>
+      <ul>
+        <li>
+          <Link href="/blog/how-to-apply-for-pmp">
+            How to Apply for PMP — application checklist
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog/itto-patterns-for-pmp">
+            ITTO Patterns for PMP — how to reason, not memorize
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog/agile-vs-predictive-vs-hybrid-real-examples">
+            Agile vs Predictive vs Hybrid — real examples
+          </Link>
+        </li>
+      </ul>
 
       <h2>Exam-day checklist</h2>
       <ul>
-        <li>Re-scan top 5 stakeholders’ objectives, constraints, and influence</li>
-        <li>Confirm engagement level deltas (who moved from Resistant → Neutral?)</li>
-        <li>Have 1–2 communication tactics per key persona</li>
+        <li>Re-read acceptance criteria for the increment in the scenario</li>
+        <li>Confirm if a change needs a formal CR → route to CCB</li>
+        <li>State how “Done” is verified and validated (by whom, when)</li>
       </ul>
     </section>
   )
