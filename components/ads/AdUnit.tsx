@@ -15,8 +15,7 @@ type Props = {
   layout?: string
   layoutKey?: string
 }
-
-export default function AdUnit({ slot ，className = ''，format = 'auto'，layout = ''，layoutKey='' }: Props) {
+export default function AdUnit({ slot,className = '',format = 'auto',layout = '',layoutKey='' }: Props) {
   useEffect(() => {
     try {
       // @ts-ignore
