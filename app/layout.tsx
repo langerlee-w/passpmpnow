@@ -62,7 +62,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const basePath = process.env.BASE_PATH || ''
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-F6ZDH39LGC' // 可保留 env；也可写死你的 ID
-
+<Script
+  id="adsbygoogle-init"
+  strategy="afterInteractive"
+  src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT || ''}`}
+  crossOrigin="anonymous"
+/>
+  
   return (
     <html
       lang={siteMetadata.language}
@@ -96,6 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
+      
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         {/* GA4 scripts - SSR 直注，View Source 可见 */}
         {GA_ID ? (
