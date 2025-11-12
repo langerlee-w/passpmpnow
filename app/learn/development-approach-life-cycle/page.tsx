@@ -14,7 +14,8 @@ export default function DevApproachPage() {
       <h1>Development Approach &amp; Life Cycle</h1>
 
       <p>
-        Pick the right approach for <strong>value, uncertainty, and constraints</strong>. Tailor governance and cadence — that’s what PMP wants to see.
+        Pick the right approach for <strong>value, uncertainty, and constraints</strong>. Tailor
+        governance and cadence — that’s what PMP wants to see.
       </p>
 
       <h2>What to master</h2>
@@ -28,7 +29,9 @@ export default function DevApproachPage() {
       <h2>Start here</h2>
       <ul>
         <li>
-          <Link href="/blog/agile-vs-predictive-vs-hybrid-real-examples">Agile vs Predictive vs Hybrid — real examples</Link>
+          <Link href="/blog/agile-vs-predictive-vs-hybrid-real-examples">
+            Agile vs Predictive vs Hybrid — real examples
+          </Link>
         </li>
         <li>
           <Link href="/blog/pmp-change-request-flow">PMP Change Request Flow — quick visual</Link>
@@ -37,7 +40,10 @@ export default function DevApproachPage() {
 
       <h2>Browse by tag</h2>
       <p>
-        More: <Link href="/tags/lifecycle" prefetch={false}>/tags/lifecycle</Link>
+        More:{' '}
+        <Link href="/tags/lifecycle" prefetch={false}>
+          /tags/lifecycle
+        </Link>
       </p>
     </section>
   )

@@ -5,6 +5,7 @@
   "scripts": {
     "start": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md,mdx,json,css}\"",
     "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
@@ -62,7 +63,7 @@
     "globals": "^15.12.0",
     "husky": "^9.0.0",
     "lint-staged": "^13.0.0",
-    "prettier": "^3.0.0",
+    "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "typescript": "^5.1.3"
   },

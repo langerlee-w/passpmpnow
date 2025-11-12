@@ -1,20 +1,20 @@
-'use client';
+'use client'
 
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
 declare global {
   interface Window {
-    adsbygoogle: unknown[];
+    adsbygoogle: unknown[]
   }
 }
 
 type Props = {
-  slot: string;
-  className?: string;
-  format?: string;
-  layout?: string;
-  layoutKey?: string;
-};
+  slot: string
+  className?: string
+  format?: string
+  layout?: string
+  layoutKey?: string
+}
 
 export default function AdUnit({
   slot,
@@ -26,11 +26,11 @@ export default function AdUnit({
   useEffect(() => {
     try {
       // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
     } catch {
       /* ignore */
     }
-  }, []);
+  }, [])
 
   return (
     <ins
@@ -43,5 +43,5 @@ export default function AdUnit({
       data-ad-layout-key={layoutKey}
       data-full-width-responsive="true"
     />
-  );
+  )
 }

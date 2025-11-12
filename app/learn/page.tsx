@@ -16,19 +16,39 @@ export default function LearnPage() {
       <p>PMP now tests how you think — not PMBOK memorization. Start learning by domain ↓</p>
 
       <ul>
-        <li><Link href="/learn/stakeholders">Stakeholders</Link></li>
-        <li><Link href="/learn/team">Team</Link></li>
-        <li><Link href="/learn/development-approach-life-cycle">Development Approach &amp; Life Cycle</Link></li>
-        <li><Link href="/learn/planning">Planning</Link></li>
-        <li><Link href="/learn/delivery">Delivery</Link></li>
-        <li><Link href="/learn/project-work">Project Work</Link></li>
-        <li><Link href="/learn/measurement">Measurement</Link></li>
-        <li><Link href="/learn/uncertainty">Uncertainty (Risk)</Link></li>
+        <li>
+          <Link href="/learn/stakeholders">Stakeholders</Link>
+        </li>
+        <li>
+          <Link href="/learn/team">Team</Link>
+        </li>
+        <li>
+          <Link href="/learn/development-approach-life-cycle">
+            Development Approach &amp; Life Cycle
+          </Link>
+        </li>
+        <li>
+          <Link href="/learn/planning">Planning</Link>
+        </li>
+        <li>
+          <Link href="/learn/delivery">Delivery</Link>
+        </li>
+        <li>
+          <Link href="/learn/project-work">Project Work</Link>
+        </li>
+        <li>
+          <Link href="/learn/measurement">Measurement</Link>
+        </li>
+        <li>
+          <Link href="/learn/uncertainty">Uncertainty (Risk)</Link>
+        </li>
       </ul>
 
       <hr />
 
-      <p className="text-sm opacity-70">These 8 pages are your structured map. Each links into recommended articles and examples.</p>
+      <p className="text-sm opacity-70">
+        These 8 pages are your structured map. Each links into recommended articles and examples.
+      </p>
     </section>
   )
 }

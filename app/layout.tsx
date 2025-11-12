@@ -69,14 +69,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-<head>
-  <Script
-    id="adsbygoogle-init"
-    strategy="afterInteractive"
-    src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsClient}`}
-    crossOrigin="anonymous"
-  />
-</head>
+      <head>
+        <Script
+          id="adsbygoogle-init"
+          strategy="afterInteractive"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsClient}`}
+          crossOrigin="anonymous"
+        />
+      </head>
       <link
         rel="apple-touch-icon"
         sizes="76x76"
@@ -104,8 +104,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      
-    <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
+
+      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         {/* GA4 scripts - SSR 直注，View Source 可见 */}
         {GA_ID ? (
           <>
