@@ -1,3 +1,4 @@
+import Script from 'next/script'
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
@@ -60,21 +61,25 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const adsClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? ''
   const basePath = process.env.BASE_PATH || ''
   const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-F6ZDH39LGC' // 可保留 env；也可写死你的 ID
-<Script
-  id="adsbygoogle-init"
-  strategy="afterInteractive"
-  src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT || ''}`}
-  crossOrigin="anonymous"
-/>
-  
+ 
   return (
     <html
       lang={siteMetadata.language}
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
+
+    <head>
+      <Script
+        id="adsbygoogle-init"
+        strategy="afterInteractive"
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsClient}`}
+        crossOrigin="anonymous"
+      />
+    </head> 
       <link
         rel="apple-touch-icon"
         sizes="76x76"
