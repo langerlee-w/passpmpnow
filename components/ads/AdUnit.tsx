@@ -16,11 +16,11 @@ type Props = {
   layoutKey?: string
 }
 
-export default function AdUnit({ slot,className='',format='auto',layout='',layoutKey='' }: Props) {
+export default function AdUnit({ slot ，className = ''，format = 'auto'，layout = ''，layoutKey='' }: Props) {
   useEffect(() => {
     try {
       // @ts-ignore
-      (window.adsbygoogle=window.adsbygoogle || []).push({})
+      (window.adsbygoogle = window.adsbygoogle || []).push({})
     } catch (e) {
       // 静默失败即可
     }
